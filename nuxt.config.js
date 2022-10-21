@@ -23,12 +23,14 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/bootstrap.min.css' }
+      {  rel: 'stylesheet', type: 'image/x-icon', href: '/bootstrap.min.css' },
+      {  rel: "stylesheet", href: "https://rsms.me/inter/inter.css" }
     ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    '@/assets/css'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -48,5 +50,23 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+  },
+
+  // Router
+  router: {
+    routers: [
+      {
+        name: 'home',
+        path: '/',
+        component: 'pages/index.vue',
+        children: [
+          {
+            name: 'home-chamcong',
+            path: '/chamcong',
+            component: 'pages/chamcong',
+          },
+        ]
+      },
+    ]
   }
 }
